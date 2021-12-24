@@ -1,0 +1,14 @@
+@import "../shared_styles/resets.scss";
+@import "../shared_styles/colors.scss";
+@import "../shared_styles/typography.scss";
+@import "../shared_styles/general.scss";
+
+.solution {
+  &__buttons {
+    margin-top: 5px;
+
+    button {
+      margin-right: 10px;
+    }
+  }
+}
