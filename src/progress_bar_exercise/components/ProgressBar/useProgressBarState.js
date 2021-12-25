@@ -86,9 +86,9 @@ export const useProgressBarState = (expectedSeconds) => {
         clearTimeout(resetTimeRef.current);
         dispatch({ type: ACTIONS.reset });
       }
-      setImmediate(() => {
+      setTimeout(() => {
         dispatch({ type: ACTIONS.addNormalAnimation, payload: animationTime });
-      });
+      }, 0);
 
       timePassedRef.current = setTimeout(() => {
         dispatch({ type: ACTIONS.setTime, payload: animationTime });

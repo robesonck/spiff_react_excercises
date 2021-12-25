@@ -37,9 +37,13 @@ const ProgressBar = ({ loading, expectedSeconds = DEFAULT_SECONDS }) => {
   }, [animatedProgress]);
 
   return (
-    <div className={`progress-bar  ${loading ? "visible" : "hidden"}`}>
+    <div
+      data-testid="progress-bar"
+      className={`progress-bar ${loading ? "visible" : "hidden"}`}
+    >
       <div
-        className={`progress-inner ${classNames}`}
+        data-testid="progress-bar-inner"
+        className={`progress-bar__inner ${classNames}`}
         style={{
           width: `${animatedProgress}%`,
           transitionDuration: `${transitionDuration}ms`,

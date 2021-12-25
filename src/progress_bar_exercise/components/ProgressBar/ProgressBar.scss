@@ -30,7 +30,7 @@
     transition: visibility 0s 4s, opacity 3s 1s linear;
   }
 
-  .progress-inner {
+  &__inner {
     width: 0%;
     height: 100%;
     background: linear-gradient(90deg, $sunrise 0%, $red 100%);
