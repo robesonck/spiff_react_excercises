@@ -25,9 +25,9 @@
   }
 
   &.hidden {
-    animation: fadeOut 3s;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 4s, opacity 3s 1s linear;
   }
 
   .progress-inner {
@@ -36,11 +36,14 @@
     background: linear-gradient(90deg, $sunrise 0%, $red 100%);
 
     &.normal-step {
-      transition: width 1s;
+      transition-property: width;
+      transition-timing-function: linear;
     }
 
     &.done {
-      transition: width 1s linear;
+      transition-property: width;
+      transition-duration: 1s;
+      transition-timing-function: linear;
     }
   }
 }
