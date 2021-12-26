@@ -6,6 +6,9 @@
 $vertical-padding: 18px;
 $horizontal-padding: 33px;
 
+$small-vertical-padding: 5px;
+$small-horizontal-padding: 15px;
+
 button.btn {
   border-width: 1px;
   border-style: solid;
@@ -30,5 +33,18 @@ button.btn {
   &:active {
     border-width: 3px;
     padding: $vertical-padding - 2 $horizontal-padding - 2;
+  }
+
+  &.size-s {
+    padding: $small-vertical-padding $small-horizontal-padding;
+
+    &:hover {
+      border-width: 2px;
+      padding: $small-vertical-padding - 1 $small-horizontal-padding - 1;
+    }
+    &:active {
+      border-width: 3px;
+      padding: $small-vertical-padding - 2 $small-horizontal-padding - 2;
+    }
   }
 }
