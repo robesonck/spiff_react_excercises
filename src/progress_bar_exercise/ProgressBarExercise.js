@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Exercise from "../exercise/Exercise";
+import Button from "./components/Button/Button";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
+import "./Solution.scss";
 
 const ProgressBarExercise = () => {
   return (
@@ -18,5 +21,19 @@ export default ProgressBarExercise;
 // ----------------------------------------------------------------------------------
 
 const Solution = () => {
-  return <div>Add solution here</div>;
+  const [loading, setLoading] = useState(false);
+
+  return (
+    <div className="solution">
+      <ProgressBar loading={loading} />
+      <div className="solution__buttons">
+        <Button onClick={() => setLoading(true)}>
+          {loading ? "Loading..." : "Start Request"}
+        </Button>
+        <Button variant="danger" onClick={() => setLoading(false)}>
+          Finish Request
+        </Button>
+      </div>
+    </div>
+  );
 };

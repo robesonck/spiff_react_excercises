@@ -1,0 +1,49 @@
+@import "../../../shared_styles/resets.scss";
+@import "../../../shared_styles/colors.scss";
+@import "../../../shared_styles/typography.scss";
+@import "../../../shared_styles/general.scss";
+
+@keyframes fadeOut {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.progress-bar {
+  height: 8px;
+  width: 100%;
+  background-color: $off-white;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 4s, opacity 3s 1s linear;
+  }
+
+  &__inner {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, $sunrise 0%, $red 100%);
+
+    &.normal-step {
+      transition-property: width;
+      transition-timing-function: linear;
+    }
+
+    &.done {
+      transition-property: width;
+      transition-duration: 1s;
+      transition-timing-function: linear;
+    }
+  }
+}
