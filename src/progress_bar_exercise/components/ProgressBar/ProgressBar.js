@@ -1,24 +1,32 @@
 import React, { useEffect, useMemo } from "react";
 import "./ProgressBar.scss";
 import { DEFAULT_SECONDS, useProgressBarState } from "./useProgressBarState";
+const DEFAULT_BREAKPOINTS = [];
 
 // Normally we would be using prop-types or typescript to type-check our props
-const ProgressBar = ({ loading, expectedSeconds = DEFAULT_SECONDS }) => {
+const ProgressBar = ({
+  loading,
+  expectedSeconds = DEFAULT_SECONDS,
+  breakpoints = DEFAULT_BREAKPOINTS,
+}) => {
   const {
     hasStarted,
     transitionDuration,
-    stopMilliseconds,
     animatedProgress,
-    addNormalAnimation,
+    addInitialAnimation,
     handleDone,
-  } = useProgressBarState(expectedSeconds);
+    handleUpdateBreakpoints,
+  } = useProgressBarState(expectedSeconds, breakpoints);
+
+  useEffect(() => {
+    handleUpdateBreakpoints(breakpoints);
+  }, [handleUpdateBreakpoints, breakpoints]);
 
   useEffect(() => {
     if (loading) {
-      addNormalAnimation(stopMilliseconds);
+      addInitialAnimation();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading]);
+  }, [addInitialAnimation, loading]);
 
   useEffect(() => {
     if (!loading && hasStarted) {

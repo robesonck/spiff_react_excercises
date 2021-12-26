@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Exercise from "../exercise/Exercise";
+import BreakPointFiller from "./components/BreakPointFiller/BreakPointFiller";
 import Button from "./components/Button/Button";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import "./Solution.scss";
@@ -22,10 +23,15 @@ export default ProgressBarExercise;
 
 const Solution = () => {
   const [loading, setLoading] = useState(false);
+  const [breakpoints, setBreakpoints] = useState([50, 75]);
 
   return (
     <div className="solution">
-      <ProgressBar loading={loading} />
+      <ProgressBar
+        loading={loading}
+        breakpoints={breakpoints}
+        expectedSeconds={10}
+      />
       <div className="solution__buttons">
         <Button onClick={() => setLoading(true)}>
           {loading ? "Loading..." : "Start Request"}
@@ -34,6 +40,11 @@ const Solution = () => {
           Finish Request
         </Button>
       </div>
+      <BreakPointFiller
+        breakpoints={breakpoints}
+        setBreakpoints={setBreakpoints}
+        loading={loading}
+      />
     </div>
   );
 };

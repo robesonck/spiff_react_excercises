@@ -3,17 +3,6 @@
 @import "../../../shared_styles/typography.scss";
 @import "../../../shared_styles/general.scss";
 
-@keyframes fadeOut {
-  from {
-    visibility: visible;
-    opacity: 1;
-  }
-  to {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
-
 .progress-bar {
   height: 8px;
   width: 100%;
@@ -37,7 +26,7 @@
 
     &.normal-step {
       transition-property: width;
-      transition-timing-function: linear;
+      transition-timing-function: ease-in-out;
     }
 
     &.done {

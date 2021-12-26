@@ -1,0 +1,39 @@
+@import "../../../shared_styles/resets.scss";
+@import "../../../shared_styles/colors.scss";
+@import "../../../shared_styles/typography.scss";
+@import "../../../shared_styles/general.scss";
+
+.breakpoint-filler {
+  margin-top: 10px;
+  max-width: 380px;
+
+  &__summary {
+    margin-bottom: 5px;
+  }
+
+  &__defaults {
+    display: flex;
+    justify-content: space-between;
+    .btn:first-of-type {
+      margin-right: 10px;
+    }
+  }
+
+  &__row {
+    margin: 5px 0px;
+  }
+
+  &__add-container {
+    border-top: 1px solid $gray-light;
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+
+  input {
+    width: 40px;
+    margin-right: 10px;
+    border-radius: 2px;
+    border-width: 1px;
+    border-color: $gray-light;
+  }
+}
